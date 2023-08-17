@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 검출목록 -->
+<!-- CWE89_MYBATIS_SQL_INJECTION :: CWE89_MyBatisSQL삽입 -->
+
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN"
+"http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<rule name="TEST">
+	<delete id="Bad" parameterClass="Fault">
+		DELETE FAULT
+		WHERE NUM = #num# AND Name = '$name$'
+	</delete>
+
+	<delete id="Good" parameterClass="Well">
+		DELETE WELL
+		WHERE NUM = #num# AND Name = '#name#'
+	</delete>
+</rule>
